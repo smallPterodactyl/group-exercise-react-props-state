@@ -14,7 +14,7 @@ function App() {
 	const [roundHouseKicks, setRoundHouseKicks] = useState<number>(300000)
 
 	const [jokes, setJokes] = useState<Array<Joke>>
-	
+
 	([{
 		"id": 1,
 		"joke": "Chuck Norris doesn’t read books. He stares them down until he gets the information he wants.",
@@ -31,6 +31,8 @@ function App() {
 		"id": 4,
 		"joke": "Chuck Norris does not own a stove, oven, or microwave, because revenge is a dish best served cold.",
 	}])
+
+	const filteredJokes = jokes.filter (jokes => jokes.id === 3)
 
 	return (
 		<div className="App">
@@ -56,15 +58,18 @@ function App() {
 
 			<h2>Filtered Jokes: </h2>
 
-			{jokes.map ((joke) => 
-			(
+			{filteredJokes.map ((filteredJoke) => 
+			(	
 				<ChuckJoke
-					id ={joke.id}
-					joke={joke.joke}
+					id ={filteredJoke.id}
+					joke={filteredJoke.joke}
 				/>
 			) )}
-
 			
+
+	
+
+
 		</div>
 	);
 }
